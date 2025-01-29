@@ -54,7 +54,7 @@ export default defineConfig((env) => {
     define: {
       // Set a flag to indicate that this is a production build
       __PRODUCTION__: env.mode === "production",
-      __VUE_PROD_DEVTOOLS__: env.mode !== 'production'
+      __VUE_PROD_DEVTOOLS__: env.mode !== "production",
     },
     // define: { "process.env": {} },
 
@@ -69,6 +69,7 @@ export default defineConfig((env) => {
     },
 
     build: {
+      target: "esnext",
       // Write output files to `public` (instead of the default `dist`)
       outDir: "public",
 
@@ -89,9 +90,6 @@ export default defineConfig((env) => {
     server: {
       // Run the dev server at `localhost:8080` by default
       port: 8080,
-
-      // Open the app in the browser by default
-      open: "/index.html",
     },
     // server: {
     //   port: 3000,

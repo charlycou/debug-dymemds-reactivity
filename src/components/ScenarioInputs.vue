@@ -15,26 +15,20 @@
         href="#socio-economics"
         title="Socio-economics"
       ></v-list-item>
-      <Slider
-        v-for="input in inputsSocioEco"
-        :input="input"
-      />
+      <Slider v-for="input in inputsSocioEco" :input="input" />
       <v-list-item
         link
         href="#saturation-stocks"
         title="Saturation stocks"
       ></v-list-item>
-      <Slider
-        v-for="input in inputsSaturationStocks"
-        :input="input"
-      />
+      <Slider v-for="input in inputsSaturationStocks" :input="input" />
     </v-list>
   </v-navigation-drawer>
 </template>
 
 <script setup>
 import { ref } from "vue";
-import { config as coreConfig } from "../core/src"
+import { config as coreConfig } from "../core/src";
 import Slider from "./Slider.vue";
 
 const showDrawer = ref(true);
@@ -51,7 +45,7 @@ function getInputs() {
     return [];
   }
 
-  return coreConfig.inputs.values().toArray();
+  return Array.from(coreConfig.inputs.values());
 }
 
 function addCategory(input) {
@@ -71,7 +65,6 @@ function getInputsByCategory(category) {
 
 const inputsSocioEco = getInputsByCategory("socio-economics");
 const inputsSaturationStocks = getInputsByCategory("saturation-stocks");
-
 </script>
 
 <style>
