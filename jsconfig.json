@@ -1,0 +1,28 @@
+{
+  "compilerOptions": {
+    // We specify the top-level directory as the root, since TypeScript requires
+    // all referenced files to live underneath the root directory
+    "rootDir": "../..",
+    // Make `paths` in the jsconfig files relative to the `app` directory
+    "baseUrl": ".",
+    // Configure path aliases
+    "paths": {
+      // "@/*": ["src/*"],
+      // The following lines enable path aliases within the app
+      "@core": ["../core/src"],
+      "@core-strings": ["../core/strings"],
+      "@prep/*": ["../../sde-prep/*"]
+    },
+    // XXX: The following two lines work around a TS/VSCode issue where this config
+    // file shows an error ("Cannot write file appcfg.js because it would overwrite
+    // input file")
+    "outDir": "/dev/shm",
+    "noEmit": true,
+    "declaration": false,
+    "target": "es2017",
+    "allowJs": true,
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "lib": ["esnext", "dom", "dom.iterable", "scripthost"]
+  }
+}
